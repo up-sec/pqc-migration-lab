@@ -1,0 +1,32 @@
+[
+  {
+    "host": "localhost",
+    "port": 8443,
+    "tls_version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cipher_bits": 256,
+    "cert_key_algo": "RSA",
+    "cert_key_size": 2048,
+    "cert_sig_algo": "sha256WithRSAEncryption",
+    "issuer": "O=PQC Lab Bank,CN=legacy-portal.bank.lab",
+    "not_after": "2026-12-06T04:00:33+00:00",
+    "days_left": 29,
+    "quantum_risk": "VULNERABLE (Shor)",
+    "error": ""
+  },
+  {
+    "host": "localhost",
+    "port": 8444,
+    "tls_version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "cipher_bits": 256,
+    "cert_key_algo": "EC-secp256r1",
+    "cert_key_size": 256,
+    "cert_sig_algo": "ecdsa-with-SHA256",
+    "issuer": "O=PQC Lab Bank,CN=payments-api.bank.lab",
+    "not_after": "2026-12-06T04:00:33+00:00",
+    "days_left": 29,
+    "quantum_risk": "VULNERABLE (Shor)",
+    "error": ""
+  }
+]

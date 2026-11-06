@@ -1,0 +1,15 @@
+# Formato: host o host:puerto (default 443). '#' = comentario.
+
+# --- Lab local (lab/local-tls/start_servers.sh) ---
+localhost:8443
+localhost:8444
+
+# --- Bancos MX (endpoints publicos) ---
+bbva.mx
+banorte.com
+banxico.org.mx
+
+# --- Referencias ---
+cloudflare.com
+github.com
+google.com

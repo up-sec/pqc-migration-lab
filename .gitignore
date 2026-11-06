@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# NUNCA subir material criptografico privado
+*.key
+*.p12
+*.pfx
+*.jks
+private/
+lab/local-tls/certs/

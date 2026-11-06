@@ -1,0 +1,3 @@
+host,port,tls_version,cipher,cipher_bits,cert_key_algo,cert_key_size,cert_sig_algo,issuer,not_after,days_left,quantum_risk,error
+localhost,8443,TLSv1.3,TLS_AES_256_GCM_SHA384,256,RSA,2048,sha256WithRSAEncryption,"O=PQC Lab Bank,CN=legacy-portal.bank.lab",2026-12-06T04:00:33+00:00,29,VULNERABLE (Shor),
+localhost,8444,TLSv1.3,TLS_AES_256_GCM_SHA384,256,EC-secp256r1,256,ecdsa-with-SHA256,"O=PQC Lab Bank,CN=payments-api.bank.lab",2026-12-06T04:00:33+00:00,29,VULNERABLE (Shor),
