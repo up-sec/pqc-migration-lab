@@ -82,7 +82,12 @@ def scan(host, port=443, timeout=5):
     sig_oid = cert.signature_algorithm_oid
     sig_algo = getattr(sig_oid, "_name", None) or sig_oid.dotted_string
 
-    not_after = cert.not_valid_after_utc
+    # cryptography >= 42 trae not_valid_after_utc; versiones anteriores (ej. 41 en
+    # Ubuntu 24.04) solo traen not_valid_after sin zona horaria -> le ponemos UTC
+    if hasattr(cert, "not_valid_after_utc"):
+        not_after = cert.not_valid_after_utc
+    else:
+        not_after = cert.not_valid_after.replace(tzinfo=timezone.utc)
     days_left = (not_after - datetime.now(timezone.utc)).days
 
     return {

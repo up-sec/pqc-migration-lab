@@ -7,7 +7,7 @@ localhost:8444
 # --- Bancos MX (endpoints publicos) ---
 bbva.mx
 banorte.com
-banxico.org.mx
+www.banxico.org.mx
 
 # --- Referencias ---
 cloudflare.com
