@@ -1,0 +1,9 @@
+host,port,tls_version,cipher,cipher_bits,cert_key_algo,cert_key_size,cert_sig_algo,issuer,not_after,days_left,quantum_risk,error
+localhost,8443,TLSv1.3,TLS_AES_256_GCM_SHA384,256,RSA,2048,sha256WithRSAEncryption,"O=PQC Lab Bank,CN=legacy-portal.bank.lab",2026-12-09T03:48:42+00:00,29,VULNERABLE (Shor),
+localhost,8444,TLSv1.3,TLS_AES_256_GCM_SHA384,256,EC-secp256r1,256,ecdsa-with-SHA256,"O=PQC Lab Bank,CN=payments-api.bank.lab",2026-12-09T03:48:42+00:00,29,VULNERABLE (Shor),
+bbva.mx,443,TLSv1.3,TLS_AES_256_GCM_SHA384,256,RSA,2048,sha256WithRSAEncryption,"CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1,O=DigiCert Inc,C=US",2027-01-26T23:59:59+00:00,78,VULNERABLE (Shor),
+banorte.com,443,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,128,RSA,2048,sha256WithRSAEncryption,"CN=DigiCert EV RSA CA G2,O=DigiCert Inc,C=US",2026-12-04T23:59:59+00:00,25,VULNERABLE (Shor),
+www.banxico.org.mx,443,TLSv1.3,TLS_AES_128_GCM_SHA256,128,RSA,2048,sha256WithRSAEncryption,"CN=GoDaddy TLS Intermediate CA DV - R1v1,O=GoDaddy.com,C=US",2027-03-24T18:59:45+00:00,135,VULNERABLE (Shor),
+cloudflare.com,443,TLSv1.3,TLS_AES_256_GCM_SHA384,256,EC-secp256r1,256,ecdsa-with-SHA256,"CN=WE1,O=Google Trust Services,C=US",2027-02-01T23:47:08+00:00,84,VULNERABLE (Shor),
+github.com,443,TLSv1.3,TLS_AES_128_GCM_SHA256,128,EC-secp256r1,256,ecdsa-with-SHA256,"CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB",2027-01-27T23:59:59+00:00,79,VULNERABLE (Shor),
+google.com,443,TLSv1.3,TLS_AES_256_GCM_SHA384,256,EC-secp256r1,256,ecdsa-with-SHA256,"CN=WE2,O=Google Trust Services,C=US",2026-12-30T19:07:41+00:00,51,VULNERABLE (Shor),
