@@ -53,13 +53,21 @@ bash lab/local-tls/start_servers.sh stop
 
 ## Tools
 
-### `tools/tls_inventory` (v0.1)
-Scans TLS endpoints and records protocol version, cipher suite, certificate key
-algorithm and size, signature algorithm, expiration and quantum risk.
-Sample output: [`inventory/sample-local-lab.csv`](inventory/sample-local-lab.csv)
+### `tools/tls_inventory` (v0.2)
+Scans TLS endpoints and records protocol version, cipher suite, **key exchange
+group**, certificate key algorithm and size, signature algorithm and expiration.
+Quantum risk is split in two:
 
-Known limitation: v0.1 does not capture the key exchange group, which is the
-relevant field for Harvest Now, Decrypt Later. Planned for v0.2.
+| Column | Protects | Quantum threat | Urgency |
+|--------|----------|----------------|---------|
+| `kex_risk` | Confidentiality (key exchange: X25519, ECDH, ML-KEM) | Harvest Now, Decrypt Later | **High — today** |
+| `auth_risk` | Authentication (certificate key: RSA, ECDSA) | Forgery once a CRQC exists | Lower for short-lived certs |
+
+Known limitation: results depend on what the *client* offers. OpenSSL < 3.5 cannot
+offer ML-KEM, so a server supporting hybrid key exchange will negotiate X25519
+with it. Recorded in the `client_offers_pqc` column.
+
+Real scan of Mexican banks: [`inventory/scan-2026-11-08-mx-banks.csv`](inventory/scan-2026-11-08-mx-banks.csv)
 
 ## References
 

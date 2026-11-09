@@ -1,4 +1,4 @@
-# 02 — Lab: TLS Cryptographic Inventory (v0.1)
+# 02 — Lab: TLS Cryptographic Inventory (v0.1 → v0.2)
 
 Goal: discover which public-key cryptography protects each TLS endpoint, as the first
 step of the cryptographic inventory recommended by CISA/NSA/NIST.
@@ -81,11 +81,25 @@ An inventory run from inside the network may record the **proxy's** cryptography
 the real server's. A correct inventory records the observation point and compares the
 issuer against the expected CA.
 
-## 6. Known limitation (v0.1) → v0.2
+## 6. v0.2 — Key exchange group (done 2026-11-09)
 
 Python's `ssl` module does not expose the negotiated key exchange group, which is the
-field that matters for HNDL. v0.2 will capture it via `openssl s_client` and separate
-the risk into:
+field that matters for HNDL. v0.2 captures it via `openssl s_client` and splits the risk:
 
 - `kex_risk` — confidentiality / HNDL (key exchange)
 - `auth_risk` — authentication (certificate key and signature)
+
+Manual check (WSL2 Ubuntu, OpenSSL 3.0.13):
+
+| Host | TLS | Key exchange | Cipher |
+|------|-----|--------------|--------|
+| bbva.mx | 1.3 | X25519 | TLS_AES_256_GCM_SHA384 |
+| banorte.com | 1.2 | ECDH P-256 (ECDHE) | ECDHE-RSA-AES128-GCM-SHA256 |
+| www.banxico.org.mx | 1.3 | X25519 | TLS_AES_128_GCM_SHA256 |
+
+All three use elliptic-curve key exchange: traffic recorded today is exposed to HNDL.
+Banorte's TLS 1.2 still uses ECDHE, so it **does** have forward secrecy (a stolen RSA
+certificate key cannot decrypt past sessions), but ECDHE itself falls to Shor.
+
+Caveat: the client limits the result. OpenSSL 3.0 cannot offer ML-KEM, so even a
+server with hybrid support would negotiate X25519 here. Next: repeat with OpenSSL 3.5+.
