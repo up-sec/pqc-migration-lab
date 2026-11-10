@@ -16,8 +16,8 @@ what it protects.
 
 | Phase | Scope | Status |
 |-------|-------|--------|
-| 0 | Threat model and cryptographic inventory (TLS discovery, CBOM) | In progress |
-| 1 | PKI: Root CA, Intermediate CA, issuance, revocation (CRL/OCSP) | Planned |
+| 0 | Threat model and cryptographic inventory (TLS discovery, CBOM) | Done (TLS v0.2) — CBOM pending |
+| 1 | PKI: Root CA, Intermediate CA, issuance, revocation (CRL/OCSP) | In progress (Root + Intermediate done) |
 | 2 | TLS / mTLS between simulated banking services + troubleshooting | Planned |
 | 3 | Key management: HSM simulation with SoftHSM2 and PKCS#11 | Planned |
 | 4 | Risk prioritization and vendor quantum-readiness assessment | Planned |
