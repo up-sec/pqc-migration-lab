@@ -1,0 +1,15 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir              = .
+database         = $dir/index.txt
+crlnumber        = $dir/crlnumber
+certificate      = $dir/certs/intermediate-ca.crt
+private_key      = $dir/private/intermediate-ca.key
+default_md       = sha384
+default_crl_days = 7
+crl_extensions   = crl_ext
+
+[ crl_ext ]
+authorityKeyIdentifier = keyid:always
